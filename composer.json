@@ -1,0 +1,14 @@
+{
+  "name": "spyse/test",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.0",
+    "ext-json": "*",
+    "ext-pdo": "*"
+  }
+}
