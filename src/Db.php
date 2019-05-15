@@ -40,17 +40,17 @@ class Db
             return false;
         }
         //Will contain SQL snippets.
-        $rowsSQL = array();
+        $rowsSQL = [];
 
         //Will contain the values that we need to bind.
-        $toBind = array();
+        $toBind = [];
 
         //Get a list of column names to use in the SQL statement.
         $columnNames = array_keys($data[0]);
 
         //Loop through our $data array.
         foreach ($data as $arrayIndex => $row) {
-            $params = array();
+            $params = [];
             foreach ($row as $columnName => $columnValue) {
                 $param = ':' . $columnName . $arrayIndex;
                 $params[] = $param;
@@ -64,13 +64,10 @@ class Db
 
         //Prepare our PDO statement.
         $pdoStatement = $this->pdo->prepare($sql);
-        echo $sql . "\n";
 
         //Bind our values.
         foreach ($toBind as $param => $val) {
             $pdoStatement->bindValue($param, $val);
-            echo $val. "\n";
-
         }
 
         //Execute our statement (i.e. insert the data).

@@ -75,7 +75,6 @@ class ParseCommand
         $domain = explode('.', $fullDomain);
         unset($domain[0]);
         $domain = implode('.', $domain);
-        echo $domain . "\n";
 
         //small optimization to limit duplicate select commands
         if (isset($this->parentDomainsMap[$domain])) {
